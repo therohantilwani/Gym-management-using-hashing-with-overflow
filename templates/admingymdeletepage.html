@@ -1,0 +1,44 @@
+{% extends 'adminheader.html' %}
+
+{% block content %}
+
+<style type="text/css">
+    table,tr,th,td
+    {
+        font-name:arial;
+        border:1px solid black;
+        border-collapse:collapse;
+    }
+
+</style>
+
+
+<div style="position:absolute; left:200px; top:100px;">
+    <br><br>
+    <h1>This is Admin Delete Gym Page</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Gym Id</th>
+            <th>Plan Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Gender</th>
+            <th>Delete Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for data in rows %}
+        <tr>
+            {% for row in data.split(",") %}
+            <td>{{row}}</td>
+            {% endfor %}
+            <td> <a href="admindeletegympage1?id={{data.split(',')[0]}}">Delete Gym</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
